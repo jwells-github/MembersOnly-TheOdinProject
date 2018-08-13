@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
+  has_many :posts
   
   # convert the email to lowercase to ensure that all emails are unique
   before_save { email.downcase! }

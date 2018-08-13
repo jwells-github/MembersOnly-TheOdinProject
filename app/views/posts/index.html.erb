@@ -1,0 +1,12 @@
+<h1>Members Only</h1>
+<h2>Posts</h2>
+<% if (!logged_in?) %>
+    <h2>You are NOT a member</h2>
+<% end %>
+<% @posts.each do |post| %>
+    <h3> <%= post.title %></h3>
+    <p> <%= post.body %> </p>
+    <% if(logged_in?) %>
+        <p>Posted by <%= User.find(post.user_id).name %> </p>
+    <% end %>
+<% end %>
